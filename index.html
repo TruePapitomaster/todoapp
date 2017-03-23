@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Todo app</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <!DOCTYPE html>
+<html ng-app="todoapp">
+<head>
+  <meta name="description" content="Angular Todos (Complete)" />
+  <!-- Include AngularJS -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js'></script>
+  <!-- Include Bootstrap -->
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css">
+  <!-- Include Firebase -->
+  <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+  <script src='https://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js'></script>
+</head>
+<body> 
+
+  <div ng-controller="TodoCtrl" class="container">
+    <div class="list-group-item title"><h4>Angular Todos</h4></div>
+    <div class="list-group-item" ng-repeat="todo in todos">
+      <input type="checkbox" ng-model="todo.done">
+      <input class="todo" type="text" value="{{todo.text}}">
+      <span class="buttons">
+        <a href="" ng-click="move($index, 'up')"><span class="glyphicon glyphicon-arrow-up"></span></a>      
+        <a href="" ng-click="move($index, 'down')"><span class="glyphicon glyphicon-arrow-down"></span></a>      
+        <a href="" ng-click="removeTodo($index)"><span class="glyphicon glyphicon-remove-circle"></span></a>
+      </span>
+    </div>
+    <div class="list-group-item" ng-show="todoText">
+      <input type="checkbox" disabled="true">
+      <input class="todo" type="text" placeholder="{{ todoText}}">
+    </div>
+    <div class="list-group-item">
+      <form ng-submit="addTodo()">              
+        <input class type="text" ng-model="todoText">
+        <input type="submit" value="Add">
+      </form>      
+    </div>
+  {{todoText}}
+
+  </div>
+</body>
+</html>
+  
+    <script src="js/index.js"></script>
+
+</body>
+</html>
